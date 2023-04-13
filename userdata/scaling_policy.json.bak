@@ -1,0 +1,7 @@
+{
+     "TargetValue": 50.0,
+     "PredefinedMetricSpecification": {
+          "PredefinedMetricType": "ASGAverageCPUUtilization",
+          "ResourceLabel": "app/vprofile-prod-ELB/0968b92eac581d4c/targetgroup/vprofile-app-TG/45263e6c2c4c826c"
+     }
+}

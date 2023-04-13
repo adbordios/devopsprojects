@@ -1,0 +1,29 @@
+{
+            "Comment": "CREATE backend DNS entries",
+            "Changes": [{
+            "Action": "CREATE",
+                        "ResourceRecordSet": {
+                                    "Name": "db01.vprofile.online",
+                                    "Type": "A",
+                                    "TTL": 300,
+                                 "ResourceRecords": [{ "Value": "172.31.89.212"}]
+}},
+{
+            "Action": "CREATE",
+                        "ResourceRecordSet": {
+                                    "Name": "mc01.vprofile.online",
+                                    "Type": "A",
+                                    "TTL": 300,
+                                 "ResourceRecords": [{ "Value": "172.31.18.228"}]
+}},
+{
+            "Action": "CREATE",
+                        "ResourceRecordSet": {
+                                    "Name": "rmq01.vprofile.online",
+                                    "Type": "A",
+                                    "TTL": 300,
+                                 "ResourceRecords": [{ "Value": "172.31.92.194"}]
+}}
+
+]
+}
