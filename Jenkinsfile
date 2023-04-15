@@ -5,7 +5,7 @@ pipeline {
         jdk "OracleJDK8"
     }
     environment {
-        # Define variables on settings.xml file, refer to Nexus repo names and Jenkins credential name
+        // Define variables on settings.xml file, refer to Nexus repo names and Jenkins credential name
         SNAP_REPO = 'vprofile-snapshot'
         NEXUS_USER = 'admin'
         NEXUS_PASS = 'adminpassword'
@@ -19,10 +19,8 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                sh 'mvn -s settings.xml -DskipTests install' # Pass settings file and skip unit tests
+                sh 'mvn -s settings.xml -DskipTests install' // Pass settings file and skip unit tests
             }
         }
     }
-
-
 }
