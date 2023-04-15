@@ -21,6 +21,25 @@ pipeline {
             steps {
                 sh 'mvn -s settings.xml -DskipTests install' // Pass settings file and skip unit tests
             }
+            post {
+                success {
+                    echo "Now Archiving."
+                    // archiveArtifacts plugin installed in Jenkins, get ll files with .war extension
+                    archiveArtifacts artifacts: '**/*.war'
+                }
+            }
+        }
+
+        stage ('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Checksum Analysis') {
+            steps {
+                sh mvn checkstyle:checkstyle
+            }
         }
     }
 }
