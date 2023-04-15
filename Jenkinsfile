@@ -38,7 +38,7 @@ pipeline {
 
         stage('Checksum Analysis') {
             steps {
-                sh mvn checkstyle:checkstyle
+                sh 'mvn checkstyle:checkstyle'
             }
         }
     }
