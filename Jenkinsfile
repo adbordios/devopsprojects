@@ -6,15 +6,15 @@ pipeline {
     }
     environment {
         // Define variables on settings.xml file, refer to Nexus repo names and Jenkins credential name
-        SNAP_REPO = 'vprofile-snapshot'
-        NEXUS_USER = 'admin'
-        NEXUS_PASS = 'adminpassword'
-        RELEASE_REPO = 'vprofile-release'
-        CENTRAL_REPO = 'vprofile-maven-central'
+        SNAP-REPO = 'vprofile-snapshot'
+        NEXUS-USER = 'admin'
+        NEXUS-PASS = 'adminpassword'
+        RELEASE-REPO = 'vprofile-release'
+        CENTRAL-REPO = 'vprofile-maven-central'
         NEXUSIP = '172.31.23.72'
         NEXUSPORT = '8081'
-        NEXUS_GRP_REPO = 'vprofile-maven-group'
-        NEXUS_LOGIN = 'nexuslogin'
+        NEXUS_GRP-REPO = 'vprofile-maven-group'
+        NEXUS-LOGIN = 'nexuslogin'
     }
     stages {
         stage ('Build') {
