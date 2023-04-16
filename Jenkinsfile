@@ -76,7 +76,7 @@ pipeline {
 
         stage("Publish to Nexus Repository Manager") {
             steps {
-            // Code reference in https://github.com/jenkinsci/nexus-artifact-uploader-plugin
+            // Code reference in github.com/jenkinsci/nexus-artifact-uploader-plugin
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
