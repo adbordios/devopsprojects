@@ -1,7 +1,7 @@
 // Define COLOR_MAP to be used by Slack. 'good' is green, 'danger' is red
 def COLOR_MAP = [
-    'SUCCESS' = 'good',
-    'FAILURE' = 'danger',
+    'SUCCESS': 'good',
+    'FAILURE': 'danger',
 ]
 pipeline {
     agent any
