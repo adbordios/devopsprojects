@@ -40,7 +40,7 @@ pipeline {
 
         stage ('Test') {
             steps {
-                sh 'ant -s settings.xml test'
+                sh 'mvn -s settings.xml test'
             }
         }
 
