@@ -17,4 +17,10 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            echo 'Build success'
+        }
+    }
 }
