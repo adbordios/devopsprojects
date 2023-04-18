@@ -9,7 +9,7 @@ pipeline {
     environment {
         // Define variables on settings.xml file, refer to Nexus repo names and Jenkins credential name
         cluster = 'vproprod'
-        service ='vproappprodsvc'
+        service = 'vproappprodsvc'
 
     }
     stages {
