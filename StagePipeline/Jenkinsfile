@@ -116,7 +116,7 @@ pipeline {
         stage("Upload App Image to ECR") {
             steps {
                 script {
-                    docker.withRegistry("vprofileRegistry", "ecr:us-east-1:awsecrcreds") {
+                    docker.withRegistry("https://670924719492.dkr.ecr.us-east-1.amazonaws.com", "ecr:us-east-1:awsecrcreds") {
                         dockerImage.push("$BUILD_NUMBER")   // push image build with tag $BUILD_NUMBER
                         dockerImage.push('latest')          // push image build with tag latest
                     }
