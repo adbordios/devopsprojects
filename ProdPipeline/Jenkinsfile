@@ -13,14 +13,15 @@ pipeline {
 
     }
     stages {
-        stage("Deploy to Prod ECS") {
+
+        stage("Deploy to ECS Prod") {
             steps {
                 withAWS(credentials: 'awsecrcreds', region: 'us-east-1') {
                     sh 'aws ecs update-service --cluster ${cluster} --service ${service} --force-new-deployment'
+                }
             }
         }
     }
-
 // Post stage execution, will run regardless of build status
     post {
         always {
