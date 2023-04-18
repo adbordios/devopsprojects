@@ -22,6 +22,9 @@ pipeline {
         NEXUS_LOGIN = 'nexuslogin'
         SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner'
+        registryCredential = 'ecr:us-east-1:awsecrcreds'                            // Credential name in Jenkins
+        appRegistry = '670924719492.dkr.ecr.us-east-1.amazonaws.com/vprofileappimg' // ECR URI
+        vprofileRegistry = 'https://670924719492.dkr.ecr.us-east-1.amazonaws.com'
 
     }
     stages {
@@ -81,7 +84,7 @@ pipeline {
 
         stage("Publish to Nexus Repository Manager") {
             steps {
-            // Code reference in github.com/jenkinsci/nexus-artifact-uploader-plugin
+                // Code reference in github.com/jenkinsci/nexus-artifact-uploader-plugin
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
@@ -97,6 +100,28 @@ pipeline {
                          type: 'war']
                     ]
                  )
+            }
+        }
+
+        stage("Build App Image") {
+            steps {
+                script {
+                    // Take image name from appRegistry and create from Dockerfile
+                    dockerImage = docker.build(appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/multistage/")
+
+                }
+            }
+        }
+
+        stage("Upload App Image to ECR") {
+            steps {
+                script {
+                    docker.withRegistry('vprofileRegistry', 'registryCredential') {
+                        dockerImage.push("$BUILD_NUMBER")   // push image build with tag $BUILD_NUMBER
+                        dockerImage.push('latest')          // push image build with tag latest
+                    }
+
+                }
             }
         }
     }
