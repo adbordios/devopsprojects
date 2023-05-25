@@ -89,7 +89,7 @@
          src: templates/ubuntu16-svcfile.j2
          dest: /etc/systemd/system/tomcat.service
          mode: "a+x"
-      when: ansible_distribution == 'Ubuntu' and ansible_distribution_major_version >= '16'
+      when: ansible_distribution  == 'Ubuntu' and ansible_distribution_major_version >= '16'
 
     - name: Reload tomcat svc config in ubuntu 14/15
       command: update-rc.d tomcat defaults

@@ -53,7 +53,7 @@
         tags:
          - deploy
 
-      - name: Try deploy artifact else restore from previos old_ROOT
+      - name: Try deploy artifact else restore from previous old_ROOT
         block:
          - name: Deploy vprofile artifact
            copy:
