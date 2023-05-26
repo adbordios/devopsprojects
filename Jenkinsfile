@@ -103,7 +103,7 @@ pipeline {
 
         stage('Ansible Deploy to staging') {
             steps {
-                ansiblePlaybook([
+                ansiblePlaybook(
                 inventory   :   'ansible/stage.inventory',
                 playbook    :   'ansible/site.yml',
                 installation:   'ansible',
@@ -121,7 +121,7 @@ pipeline {
                         artifactid: "vproapp",
                         vprofile_version: "vproapp-${env.BUILD_ID}-${env.BUILD_TIMESTAMP}.war"
                     ]
-                ])
+                )
             }
         }
 
