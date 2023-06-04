@@ -13,10 +13,10 @@ pipeline {
         // Define variables on settings.xml file, refer to Nexus repo names and Jenkins credential name
         SNAP_REPO = 'vprofile-snapshot'
         NEXUS_USER = 'admin'
-        NEXUS_PASS = 'adminpassword'
+        NEXUS_PASS = 'admin4'
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vprofile-maven-central'
-        NEXUSIP = '172.31.23.72'
+        NEXUSIP = '172.31.20.27'
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vprofile-maven-group'
         NEXUS_LOGIN = 'nexuslogin'
